@@ -3,6 +3,7 @@
 package ps
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -33,6 +34,10 @@ func (p *UnixProcess) PPid() int {
 
 func (p *UnixProcess) Executable() string {
 	return p.binary
+}
+
+func (p *UnixProcess) Arguments() ([]string, error) {
+	return nil, errors.New("not implemented")
 }
 
 // Refresh reloads all the data associated with this process.

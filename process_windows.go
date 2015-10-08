@@ -3,6 +3,7 @@
 package ps
 
 import (
+	"errors"
 	"fmt"
 	"syscall"
 	"unsafe"
@@ -55,6 +56,10 @@ func (p *WindowsProcess) PPid() int {
 
 func (p *WindowsProcess) Executable() string {
 	return p.exe
+}
+
+func (p *WindowsProcess) Arguments() ([]string, error) {
+	return nil, errors.New("not implemented")
 }
 
 func newWindowsProcess(e *PROCESSENTRY32) *WindowsProcess {

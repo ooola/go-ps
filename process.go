@@ -19,6 +19,10 @@ type Process interface {
 	// Executable name running this process. This is not a path to the
 	// executable.
 	Executable() string
+
+	// The arguments passed to the running process. This may return nil
+	// if the caller lacks permissions to the process.
+	Arguments() ([]string, error)
 }
 
 // Processes returns all processes.
